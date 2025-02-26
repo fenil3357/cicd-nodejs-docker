@@ -1,0 +1,19 @@
+{
+  "name": "cicd-nodejs-docker",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "start": "pm2-runtime start app.js --name server --output ./logs/output.log --error ./logs/error.log -i max"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "express": "^4.21.2"
+  },
+  "type": "module",
+  "devDependencies": {
+    "pm2": "^5.4.3"
+  }
+}
