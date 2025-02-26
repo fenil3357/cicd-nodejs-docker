@@ -1,0 +1,23 @@
+name: CD Pipeline
+
+on:
+  workflow_run:
+    workflow: ['CI Pipeline']
+    types:
+      - completed
+
+jobs:
+
+  build:
+
+    runs-on: self-hosted
+
+    steps:
+      - name: Pull docker image
+        run: sudo docker pull fenil3357/cicd-nodejs:latest
+
+      - name: Delete old docker container
+         run: sudo docker rm -f cicd-nodejs-container || true
+
+      - name: Run docker container
+         run: sudo docker run -d -p 3000:3000 --name cicd-nodejs-container fenil3357/cicd-nodejs:latest
