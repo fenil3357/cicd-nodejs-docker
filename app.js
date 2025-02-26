@@ -5,12 +5,12 @@ const PORT = process.env.PORT || 3000;
 
 app.use(express.json());
 
-app.get('/', (req, res) => {
-  return res.send('Welcome to the server!!');
+app.get('/', (_req, res) => {
+  return res.send('Welcome to the server!');
 })
 
-app.get('/new', (req, res) => {
-  return res.send('This is new feature!')
+app.get('/new', (_req, res) => {
+  return res.send('Welcome to the new route!')
 })
 
 app.listen(PORT, () => {
